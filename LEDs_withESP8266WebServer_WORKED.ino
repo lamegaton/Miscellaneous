@@ -1,15 +1,27 @@
+///********************************************************/
 // credits to https://github.com/MajicDesigns/MD_MAX72XX
+// Son Pham 10-17-2018
+// Project: Signal Board for Bikers
+/********************************************************/
+
+
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <MD_MAX72xx.h>
 #include <SPI.h>
+
 //Declare hardware
+// I use NodeMCU ESP12E with Espressif NONOS
+// 4 8x8 LED with MAX7219 
+// You need to power the LED board with 5V, if not you will
+// fry the 1117 on the NodeMCU
+
 #define HARDWARE_TYPE MD_MAX72XX::FC16_HW
 #define MAX_DEVICES 4
 
-#define CLK_PIN   14 // or SCK
-#define DATA_PIN  13 // or MOSI
-#define CS_PIN    15 // or SS
+#define CLK_PIN   14 // or SCK  D5
+#define DATA_PIN  13 // or MOSI D7
+#define CS_PIN    15 // or SS   D8
 
 // Global message buffers shared by Wifi and Scrolling functions
 #define CHAR_SPACING  1 // pixels between characters
