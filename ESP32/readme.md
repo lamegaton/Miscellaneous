@@ -1,0 +1,3 @@
+# readVoltage_esp32
+I'm trying to improve the precision 
+A DM reads 1.524 on a battery but ESP32 reads 1.480 - 1.490 ...
