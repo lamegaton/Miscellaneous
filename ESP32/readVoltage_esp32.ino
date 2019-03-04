@@ -1,16 +1,19 @@
 /* 
 03/03/2019
-Use pin 2 to read voltage
+Use pin 2 to read voltage (5ft pin (right))
 Code by Son Pham 
 sonpham995@gmail.com
 credits to: https://github.com/G6EJD/ESP32-ADC-Accuracy-Improvement-function/blob/master/ESP32_Read_Voltage_Simple.ino
-
+I also use 270 ohm resistor to measure current.
 */
+
+uint16_t resistor = 270; 
 int value = 0;
 int maxValue = 0;
 int minValue = 4096;
 
 float refVolt = 3.333333;
+float voltage = 0;
 float alpha = 0.7;
 byte res = 12;
 byte ADCpin = 2;
@@ -31,8 +34,8 @@ void calibration(){
 }
 
 void val2Voltage(int *val){
-  float voltage = (*val * (refVolt / (1 << res)));
-  Serial.println(voltage,6);
+  voltage = (*val * (refVolt / (1 << res)));
+  Serial.print("Voltage(V): ");Serial.print(voltage,6);Serial.print("     ");
 }
 
 void setup() {
@@ -54,5 +57,6 @@ void loop() {
   val2Voltage(&val);
   //float voltage = value * (3.333333 / 4096.000);
   //Serial.println(voltage,6);
+  Serial.print("Current(mA): "); Serial.println(voltage*1000/resistor,3);
   delay(200);
 }
