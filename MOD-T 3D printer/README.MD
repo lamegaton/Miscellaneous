@@ -5,4 +5,6 @@
 3. This is a tutorial on how to use it: https://www.robosupportsnewmatter.com/how-to-use-cura-with-the-mod-t/
 4. Another tutorial: https://web.archive.org/web/20180301201538/https://newmatter.com/blog/how-to-use-cura-with-the-mod-t/
 5. This Github's rep has everything you need: https://github.com/tripflex/MOD-t
+6. In case you cannot download the .ini file from other websites, I already include them for you.
 
+Have fun creating things!
