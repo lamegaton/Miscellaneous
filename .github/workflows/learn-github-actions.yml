@@ -1,14 +1,13 @@
-name: Starter Workflow Demo
-on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
 jobs:
-  build:
+  check-bats-version:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-      - name: demo workflow job
-        run: echo This is a demo start workflow
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
